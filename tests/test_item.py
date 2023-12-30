@@ -14,13 +14,6 @@ def test_string_to_number():
     assert Item.string_to_number('5') == 5
     assert Item.string_to_number('5.0') == 5
     assert Item.string_to_number('5.5') == 5
-# @property
-# def test_name():
-#     item = Item("Смартфон", 10000, 20)
-#     assert item.name == 'Смартфон'
-#     item1 = Item("СуперСмартфон", 10000, 20)
-#     assert item1.name == 'СуперСмарт'
-
 def test_all():
     Item.instantiate_from_csv(OPERATIONS_PATH)
     assert len(Item.all) == 5
