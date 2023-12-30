@@ -1,4 +1,5 @@
 from src.item import Item
+from config import OPERATIONS_PATH
 
 
 if __name__ == '__main__':
@@ -13,13 +14,10 @@ if __name__ == '__main__':
     assert item.name == 'СуперСмарт'
 
     # Exception: Длина наименования товара превышает 10 символов.
-
-    Item.instantiate_from_csv("C:/Users/User/Nika/electronics-shop-project/src/items.csv")  # создание объектов из данных файла
-    print(Item.all)
+    Item.instantiate_from_csv(OPERATIONS_PATH)  # создание объектов из данных файла
     assert len(Item.all) == 5  # в файле 5 записей с данными по товарам
 
     item1 = Item.all[0]
-    print(item1.name)
     assert item1.name == 'Смартфон'
 
     assert Item.string_to_number('5') == 5
