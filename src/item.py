@@ -72,3 +72,7 @@ class Item:
             return self.quantity + other.quantity
         else:
             raise TypeError ("Нельзя складывать с другими классами, кроме Phone")
+
+
+
+
