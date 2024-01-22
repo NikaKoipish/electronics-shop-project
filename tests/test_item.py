@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 from src.item import Item
 from src.phone import Phone
+import pytest
 
 from config import OPERATIONS_PATH
 def test_calculate_total_price():
@@ -41,8 +42,9 @@ class P:
         self.quantity = quantity
         self.price = price
         self.name = name
-def test_add_another_class():
 
+def test_value_error():
     p = P("iPhone 14", 120_000, 5)
     item1 = Item("Смартфон", 10000, 20)
-    assert item1 + p == "TypeError"
+    with pytest.raises(TypeError, match='Нельзя складывать с другими классами, кроме Phone'):
+        item1 + p
