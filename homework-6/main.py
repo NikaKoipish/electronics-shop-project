@@ -1,5 +1,5 @@
 from src.item import Item
-from config import OPERATIONS_PATH
+from config import OPERATIONS_PATH, TEST_PATH, DAMAGE_PATH
 
 if __name__ == '__main__':
     # Файл items.csv отсутствует.
