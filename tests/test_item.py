@@ -3,7 +3,7 @@ from src.item import Item
 from src.phone import Phone
 import pytest
 import csv
-from src.Instantiatecsv import InstantiateCSVError
+from src.instantiatecsv import InstantiateCSVError
 from config import OPERATIONS_PATH, TEST_PATH, DAMAGE_PATH
 def test_calculate_total_price():
     item1 = Item("Смартфон", 10000, 20)
@@ -53,11 +53,9 @@ def test_value_error():
 def test_file_not_found():
     file_name = TEST_PATH
     with pytest.raises(FileNotFoundError, match='_Отсутствует файл item.csv_'):
-        with open(file_name, newline='', encoding="utf-8") as csvfile:
-            reader = csv.DictReader(csvfile)
+        Item.instantiate_from_csv(file_name)
+
 
 def test_file_damaged():
     with pytest.raises(InstantiateCSVError, match='_Файл item.csv поврежден_'):
-        #Item.instantiate_from_csv(DAMAGE_PATH)
-        with open(DAMAGE_PATH, newline='', encoding="utf-8") as csvfile:
-            reader = csv.DictReader(csvfile)
+        Item.instantiate_from_csv(DAMAGE_PATH)
