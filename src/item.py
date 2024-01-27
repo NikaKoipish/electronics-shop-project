@@ -1,7 +1,7 @@
 import csv
 import os.path
 
-from src.Instantiatecsv import InstantiateCSVError
+from src.instantiatecsv import InstantiateCSVError
 class Item:
     """
     Класс для представления товара в магазине.
@@ -59,7 +59,7 @@ class Item:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     if len(row) < 3:
-                        raise InstantiateCSVError
+                        raise InstantiateCSVError('_Файл item.csv поврежден_')
                     else:
                         name = row["name"]
                         price = row["price"]
